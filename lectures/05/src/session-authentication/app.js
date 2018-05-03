@@ -26,7 +26,9 @@ function generateHash (password, salt){
 }
 
 app.use(function(req, res, next){
-    req.user = ('user' in req.session)? req.session.user : null;
+    req.user = ('user' in req.session) ? req.session.user : null;
+    console.log("HTTP request", req.username, req.method, req.url, req.body);
+    console.log(req.session)
     next();
 });
 
